@@ -57,3 +57,17 @@ Traceback (most recent call last):
     arr = lib.maybe_convert_objects(arr)
   File "lib.pyx", line 2538, in pandas._libs.lib.maybe_convert_objects
 TypeError: Cannot convert numpy.ndarray to numpy.ndarray
+
+try:
+    df = pd.read_csv('hbm_del.csv', dtype=str, engine='python', encoding='latin1')
+    print("成功读取数据！")
+    print(df.head())
+except Exception as e:
+    print("仍然出错:", e)
+    # 进一步检查文件内容
+    import csv
+    with open('hbm_del.csv', 'r') as f:
+        reader = csv.reader(f)
+        for i, row in enumerate(reader):
+            if i > 5: break
+            print(f"行 {i}: {row}")
