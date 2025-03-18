@@ -32,3 +32,28 @@ for (mb, dev, bank), group in df.groupby(['mb', 'dev', 'bank']):
 df_result = pd.concat(result_dfs).sort_index()
 
 print(df_result)
+Traceback (most recent call last):
+  File "/home/liangfei/Workspace-WYQ/HBM/data_re.py", line 6, in <module>
+    df = pd.read_csv('hbm_del.csv')
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 626, in _read
+    return parser.read(nrows)
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1968, in read
+    df = DataFrame(
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/core/frame.py", line 778, in __init__
+    mgr = dict_to_mgr(data, index, columns, dtype=dtype, copy=copy, typ=manager)
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/core/internals/construction.py", line 443, in dict_to_mgr
+    arrays = Series(data, index=columns, dtype=object)
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/core/series.py", line 490, in __init__
+    index = ensure_index(index)
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 7647, in ensure_index
+    return Index(index_like, copy=copy, tupleize_cols=False)
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 565, in __new__
+    arr = sanitize_array(data, None, dtype=dtype, copy=copy)
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/core/construction.py", line 654, in sanitize_array
+    subarr = maybe_convert_platform(data)
+  File "/home/liangfei/anaconda3/envs/EXP-WYQ/lib/python3.10/site-packages/pandas/core/dtypes/cast.py", line 138, in maybe_convert_platform
+    arr = lib.maybe_convert_objects(arr)
+  File "lib.pyx", line 2538, in pandas._libs.lib.maybe_convert_objects
+TypeError: Cannot convert numpy.ndarray to numpy.ndarray
