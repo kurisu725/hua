@@ -1,0 +1,34 @@
+import pandas as pd
+import bisect
+
+# 假设df是原始DataFrame，包含time、mb、dev、bank列
+# 确保time列为datetime类型
+df['time'] = pd.to_datetime(df['time'])
+
+result_dfs = []
+
+# 按分组处理数据
+for (mb, dev, bank), group in df.groupby(['mb', 'dev', 'bank']):
+    # 按时间排序当前分组的数据
+    sorted_group = group.sort_values('time')
+    sorted_times = sorted_group['time'].tolist()
+    
+    counts = []
+    for t in sorted_group['time']:
+        # 计算时间窗口左边界
+        left = t - pd.Timedelta(hours=24)
+        # 使用二分查找确定窗口内的记录数
+        left_pos = bisect.bisect_left(sorted_times, left)
+        right_pos = bisect.bisect_left(sorted_times, t)
+        count = right_pos - left_pos
+        counts.append(count)
+    
+    # 添加新列到当前分组
+    sorted_group = sorted_group.copy()
+    sorted_group['count_24h'] = counts
+    result_dfs.append(sorted_group)
+
+# 合并所有分组并恢复原始索引顺序
+df_result = pd.concat(result_dfs).sort_index()
+
+print(df_result)
