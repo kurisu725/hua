@@ -58,31 +58,18 @@ Traceback (most recent call last):
   File "lib.pyx", line 2538, in pandas._libs.lib.maybe_convert_objects
 TypeError: Cannot convert numpy.ndarray to numpy.ndarray
 
-try:
-    df = pd.read_csv('hbm_del.csv', dtype=str, engine='python', encoding='latin1')
-    print("成功读取数据！")
-    print(df.head())
-except Exception as e:
-    print("仍然出错:", e)
-    # 进一步检查文件内容
-    import csv
-    with open('hbm_del.csv', 'r') as f:
-        reader = csv.reader(f)
-        for i, row in enumerate(reader):
-            if i > 5: break
-            print(f"行 {i}: {row}")
-仍然出错: Cannot convert numpy.ndarray to numpy.ndarray
-行 0: ['', 'module', 'sub_module', 'socket', 'device_id', 'stack', 'pc_id', 'sid', 'bank_group', 'bank', 'row', 'col', 'mainboard_encoded', 'timestamp', 'err_code', 'marked']
-行 1: ['217781', '0', '0', '0', '0', '0', '0', '0', '0', '0', '1788', '40', '2126', '1.7173e+18', '780', '0']
-行 2: ['151250', '0', '0', '0', '0', '0', '0', '0', '0', '2', '3129', '68', '1148', '1.71692e+18', '780', '0']
-行 3: ['79725', '0', '0', '0', '0', '0', '0', '0', '0', '2', '10961', '56', '500', '1.71523e+18', '780', '0']
-行 4: ['36238', '0', '0', '0', '0', '0', '0', '0', '0', '3', '13654', '72', '246', '1.70607e+18', '780', '0']
-行 5: ['248111', '0', '0', '0', '0', '0', '0', '0', '1', '0', '16799', '76', '2641', '1.71188e+18', '780', '0']
-
-
 Traceback (most recent call last):
-  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 42, in <module>
-    X_train, X_test = build_seq(train_data,steps)
-  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 35, in build_seq
-    window = data['marked'].iloc[i:i+steps].values
-IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices
+  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 57, in <module>
+    hstory = model.fit(
+  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+ValueError: Exception encountered when calling LSTMCell.call().
+
+Dimensions must be equal, but are 15 and 12 for '{{node sequential_1/lstm_1/lstm_cell_1/MatMul}} = MatMul[T=DT_FLOAT, grad_a=false, grad_b=false, transpose_a=false, transpose_b=false](sequential_1/lstm_1/strided_slice_2, sequential_1/lstm_1/lstm_cell_1/Cast/ReadVariableOp)' with input shapes: [?,15], [12,256].
+
+Arguments received by LSTMCell.call():
+  • inputs=tf.Tensor(shape=(None, 15), dtype=float32)
+  • states=('tf.Tensor(shape=(None, 64), dtype=float32)', 'tf.Tensor(shape=(None, 64), dtype=float32)')
+  • training=True
