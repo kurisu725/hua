@@ -58,73 +58,28 @@ Traceback (most recent call last):
   File "lib.pyx", line 2538, in pandas._libs.lib.maybe_convert_objects
 TypeError: Cannot convert numpy.ndarray to numpy.ndarray
 
-Traceback (most recent call last):
-  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 57, in <module>
-    hstory = model.fit(
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
-    raise e.with_traceback(filtered_tb) from None
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
-    raise e.with_traceback(filtered_tb) from None
-ValueError: Exception encountered when calling LSTMCell.call().
-
-Dimensions must be equal, but are 15 and 12 for '{{node sequential_1/lstm_1/lstm_cell_1/MatMul}} = MatMul[T=DT_FLOAT, grad_a=false, grad_b=false, transpose_a=false, transpose_b=false](sequential_1/lstm_1/strided_slice_2, sequential_1/lstm_1/lstm_cell_1/Cast/ReadVariableOp)' with input shapes: [?,15], [12,256].
-
-Arguments received by LSTMCell.call():
-  • inputs=tf.Tensor(shape=(None, 15), dtype=float32)
-  • states=('tf.Tensor(shape=(None, 64), dtype=float32)', 'tf.Tensor(shape=(None, 64), dtype=float32)')
-  • training=True
-
-Traceback (most recent call last):
-  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 83, in <module>
-    model = Sequential([
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/models/sequential.py", line 76, in __init__
-    self._maybe_rebuild()
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/models/sequential.py", line 149, in _maybe_rebuild
-    self.build(input_shape)
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/layers/layer.py", line 229, in build_wrapper
-    original_build_method(*args, **kwargs)
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/models/sequential.py", line 195, in build
-    x = layer(x)
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
-    raise e.with_traceback(filtered_tb) from None
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/layers/attention/attention.py", line 300, in _validate_inputs
-    raise ValueError(
-ValueError: Attention layer must be called on a list of inputs, namely [query, value] or [query, value, key]. Received: inputs=(None, 16, 64).
-
-Traceback (most recent call last):
-  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 94, in <module>
-    hstory = model.fit(
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
-    raise e.with_traceback(filtered_tb) from None
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/backend/tensorflow/nn.py", line 767, in binary_crossentropy
-    raise ValueError(
-ValueError: Arguments `target` and `output` must have the same rank (ndim). Received: target.shape=(None,), output.shape=(None, 16, 1)
-
-Traceback (most recent call last):
-  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 104, in <module>
-    hstory = model.fit(
-  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
-    raise e.with_traceback(filtered_tb) from None
-  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 23, in f1_score
-    precision = Precision()(y_true,y_pred)
-ValueError: tf.function only supports singleton tf.Variables created on the first call. Make sure the tf.Variable is only created once or created outside tf.function. See https://www.tensorflow.org/guide/function#creating_tfvariables for more information.
-
-(YYTEXP) liangfei@akv7-G560-V5:~/Workspace-WYQ/HBM$ pip install git+https://github.com/keras-team/keras-tuner.git
-Collecting git+https://github.com/keras-team/keras-tuner.git
-  Cloning https://github.com/keras-team/keras-tuner.git to /tmp/pip-req-build-dn4dmh_b
-  Running command git clone --filter=blob:none --quiet https://github.com/keras-team/keras-tuner.git /tmp/pip-req-build-dn4dmh_b
-  fatal: unable to access 'https://github.com/keras-team/keras-tuner.git/': Received HTTP code 407 from proxy after CONNECT
+(YYTEXP) liangfei@akv7-G560-V5:~/Workspace-WYQ/HBM/keras-tuner-master$ pip install .
+Processing /home/liangfei/Workspace-WYQ/HBM/keras-tuner-master
+  Installing build dependencies ... error
   error: subprocess-exited-with-error
   
-  × git clone --filter=blob:none --quiet https://github.com/keras-team/keras-tuner.git /tmp/pip-req-build-dn4dmh_b did not run successfully.
-  │ exit code: 128
-  ╰─> See above for output.
+  × pip subprocess to install build dependencies did not run successfully.
+  │ exit code: 1
+  ╰─> [7 lines of output]
+      WARNING: Retrying (Retry(total=4, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required'))': /simple/setuptools/
+      WARNING: Retrying (Retry(total=3, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required'))': /simple/setuptools/
+      WARNING: Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required'))': /simple/setuptools/
+      WARNING: Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required'))': /simple/setuptools/
+      WARNING: Retrying (Retry(total=0, connect=None, read=None, redirect=None, status=None)) after connection broken by 'ProxyError('Cannot connect to proxy.', OSError('Tunnel connection failed: 407 Proxy Authentication Required'))': /simple/setuptools/
+      ERROR: Could not find a version that satisfies the requirement setuptools>=40.8.0 (from versions: none)
+      ERROR: No matching distribution found for setuptools>=40.8.0
+      [end of output]
   
   note: This error originates from a subprocess, and is likely not a problem with pip.
 error: subprocess-exited-with-error
 
-× git clone --filter=blob:none --quiet https://github.com/keras-team/keras-tuner.git /tmp/pip-req-build-dn4dmh_b did not run successfully.
-│ exit code: 128
+× pip subprocess to install build dependencies did not run successfully.
+│ exit code: 1
 ╰─> See above for output.
 
 note: This error originates from a subprocess, and is likely not a problem with pip.
