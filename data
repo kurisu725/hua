@@ -99,3 +99,12 @@ Traceback (most recent call last):
   File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/backend/tensorflow/nn.py", line 767, in binary_crossentropy
     raise ValueError(
 ValueError: Arguments `target` and `output` must have the same rank (ndim). Received: target.shape=(None,), output.shape=(None, 16, 1)
+
+Traceback (most recent call last):
+  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 104, in <module>
+    hstory = model.fit(
+  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 23, in f1_score
+    precision = Precision()(y_true,y_pred)
+ValueError: tf.function only supports singleton tf.Variables created on the first call. Make sure the tf.Variable is only created once or created outside tf.function. See https://www.tensorflow.org/guide/function#creating_tfvariables for more information.
