@@ -108,3 +108,23 @@ Traceback (most recent call last):
   File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 23, in f1_score
     precision = Precision()(y_true,y_pred)
 ValueError: tf.function only supports singleton tf.Variables created on the first call. Make sure the tf.Variable is only created once or created outside tf.function. See https://www.tensorflow.org/guide/function#creating_tfvariables for more information.
+
+(YYTEXP) liangfei@akv7-G560-V5:~/Workspace-WYQ/HBM$ pip install git+https://github.com/keras-team/keras-tuner.git
+Collecting git+https://github.com/keras-team/keras-tuner.git
+  Cloning https://github.com/keras-team/keras-tuner.git to /tmp/pip-req-build-dn4dmh_b
+  Running command git clone --filter=blob:none --quiet https://github.com/keras-team/keras-tuner.git /tmp/pip-req-build-dn4dmh_b
+  fatal: unable to access 'https://github.com/keras-team/keras-tuner.git/': Received HTTP code 407 from proxy after CONNECT
+  error: subprocess-exited-with-error
+  
+  × git clone --filter=blob:none --quiet https://github.com/keras-team/keras-tuner.git /tmp/pip-req-build-dn4dmh_b did not run successfully.
+  │ exit code: 128
+  ╰─> See above for output.
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+error: subprocess-exited-with-error
+
+× git clone --filter=blob:none --quiet https://github.com/keras-team/keras-tuner.git /tmp/pip-req-build-dn4dmh_b did not run successfully.
+│ exit code: 128
+╰─> See above for output.
+
+note: This error originates from a subprocess, and is likely not a problem with pip.
