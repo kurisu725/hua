@@ -73,3 +73,20 @@ Arguments received by LSTMCell.call():
   • inputs=tf.Tensor(shape=(None, 15), dtype=float32)
   • states=('tf.Tensor(shape=(None, 64), dtype=float32)', 'tf.Tensor(shape=(None, 64), dtype=float32)')
   • training=True
+
+Traceback (most recent call last):
+  File "/home/liangfei/Workspace-WYQ/HBM/lstm_test.py", line 83, in <module>
+    model = Sequential([
+  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/models/sequential.py", line 76, in __init__
+    self._maybe_rebuild()
+  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/models/sequential.py", line 149, in _maybe_rebuild
+    self.build(input_shape)
+  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/layers/layer.py", line 229, in build_wrapper
+    original_build_method(*args, **kwargs)
+  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/models/sequential.py", line 195, in build
+    x = layer(x)
+  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/utils/traceback_utils.py", line 122, in error_handler
+    raise e.with_traceback(filtered_tb) from None
+  File "/home/liangfei/anaconda3/envs/YYTEXP/lib/python3.10/site-packages/keras/src/layers/attention/attention.py", line 300, in _validate_inputs
+    raise ValueError(
+ValueError: Attention layer must be called on a list of inputs, namely [query, value] or [query, value, key]. Received: inputs=(None, 16, 64).
